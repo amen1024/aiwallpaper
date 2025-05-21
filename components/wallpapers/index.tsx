@@ -4,8 +4,9 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { CopyToClipboard } from "react-copy-to-clipboard";
-import { FaDownload } from "react-icons/fa";
+// 删除这行未使用的导入
+// import { useCopyToClipboard } from 'react-copy-to-clipboard';
+import { FaDownload,FaCopy } from "react-icons/fa";
 import Image from "next/image";
 import { Wallpaper } from "@/types/wallpaper";
 import { toast } from "sonner";
@@ -16,6 +17,18 @@ interface Props {
 }
 
 export default function ({ wallpapers, loading }: Props) {
+  // 移除不再需要的copied状态
+  const handleCopy = (text: string) => {
+    navigator.clipboard.writeText(text)
+      .then(() => {
+        toast.success("提示词已复制");
+      })
+      .catch((error) => {
+        console.error("复制失败:", error);
+        toast.error("复制失败，请手动复制");
+      });
+  };
+
   return (
     <section>
       <div className="mx-auto w-full max-w-7xl px-0 py-2 md:px-10 md:py-8 lg:py-8">
@@ -38,6 +51,7 @@ export default function ({ wallpapers, loading }: Props) {
                           width={350}
                           height={200}
                           loading="lazy"
+                          unoptimized // 禁用优化
                         />
 
                         <div className="px-5 py-8 sm:px-6">
@@ -70,12 +84,16 @@ export default function ({ wallpapers, loading }: Props) {
                                 <FaDownload />
                               </p>
                             </a>
-                            <CopyToClipboard
-                              text={wallpaper.img_description}
-                              onCopy={() => toast.success("Copied")}
+                            <Button 
+                              onClick={() => handleCopy(wallpaper.img_description)}
+                              variant="outline"
+                              className="hover:bg-gray-100 transition-colors"
                             >
-                              <Button>Copy Prompt</Button>
-                            </CopyToClipboard>
+                              <span className="flex items-center gap-2">
+                                <FaCopy className="text-sm" />
+                                复制提示词
+                              </span>
+                            </Button>
                           </div>
                         </div>
                       </div>

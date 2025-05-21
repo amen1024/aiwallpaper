@@ -8,6 +8,7 @@ import { genOrderNo } from "@/lib/order";
 
 export const maxDuration = 120;
 
+export const runtime = "edge";
 export async function POST(req: Request) {
   const user = await currentUser();
   if (!user || !user.emailAddresses || user.emailAddresses.length === 0) {

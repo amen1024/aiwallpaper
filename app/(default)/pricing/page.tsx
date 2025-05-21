@@ -1,4 +1,5 @@
 "use client";
+export const runtime = "edge";
 
 import { Button } from "@/components/ui/button";
 import { CheckIcon } from "@heroicons/react/20/solid";

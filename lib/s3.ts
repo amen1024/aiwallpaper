@@ -1,67 +1,46 @@
-import AWS from "aws-sdk";
-import { Readable } from "stream";
-import axios from "axios";
-import fs from "fs";
+import { S3Client } from "@aws-sdk/client-s3";
+import { Upload } from "@aws-sdk/lib-storage";
 
-AWS.config.update({
-  accessKeyId: process.env.AWS_AK,
-  secretAccessKey: process.env.AWS_SK,
+// 配置S3客户端（适配Cloudflare R2）
+const s3Client = new S3Client({
+  region: "auto",
+  endpoint: process.env.CF_R2_ENDPOINT,
+  credentials: {
+    accessKeyId: process.env.AWS_AK || "",
+    secretAccessKey: process.env.AWS_SK || "",
+  },
 });
 
-const s3 = new AWS.S3();
-
+// 更新上传方法
 export async function downloadAndUploadImage(
   imageUrl: string,
   bucketName: string,
   s3Key: string
 ) {
   try {
-    const response = await axios({
-      method: "GET",
-      url: imageUrl,
-      responseType: "stream",
+    // 使用fetch替代axios（更适配Edge Runtime）
+    const response = await fetch(imageUrl);
+    const body = response.body;
+    if (!body) {
+      throw new Error('Failed to get response body');
+    }
+
+    const upload = new Upload({
+      client: s3Client,
+      params: {
+        Bucket: bucketName,
+        Key: s3Key,
+        Body: body as unknown as ReadableStream<Uint8Array>, // 使用标准Web Stream类型
+        ContentType: response.headers.get("content-type") || "image/png",
+      },
+      partSize: 5 * 1024 * 1024,
     });
 
-    const uploadParams = {
-      Bucket: bucketName,
-      Key: s3Key,
-      Body: response.data as Readable,
-    };
-
-    return s3.upload(uploadParams).promise();
+    return upload.done();
   } catch (e) {
     console.log("upload failed:", e);
     throw e;
   }
 }
 
-export async function downloadImage(imageUrl: string, outputPath: string) {
-  try {
-    const response = await axios({
-      method: "GET",
-      url: imageUrl,
-      responseType: "stream",
-    });
-
-    return new Promise((resolve, reject) => {
-      const writer = fs.createWriteStream(outputPath);
-      response.data.pipe(writer);
-
-      let error: Error | null = null;
-      writer.on("error", (err) => {
-        error = err;
-        writer.close();
-        reject(err);
-      });
-
-      writer.on("close", () => {
-        if (!error) {
-          resolve(null);
-        }
-      });
-    });
-  } catch (e) {
-    console.log("upload failed:", e);
-    throw e;
-  }
-}
+// 完全移除downloadImage函数及其导出

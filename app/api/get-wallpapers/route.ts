@@ -2,6 +2,8 @@ import { respData, respErr } from "@/lib/resp";
 
 import { getWallpapers } from "@/models/wallpaper";
 
+export const runtime = "edge";
+
 export async function POST(req: Request) {
   try {
     const { page } = await req.json();

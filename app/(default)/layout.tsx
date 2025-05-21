@@ -1,4 +1,5 @@
 "use client";
+export const runtime = "edge";
 
 import { AppContextProvider } from "@/contexts/AppContext";
 import Footer from "@/components/footer";
