@@ -5,7 +5,8 @@ import { supabase } from "@/models/db";
 export async function insertUser(user: User) {
   const createdAt = new Date().toISOString();
   
-  const { data, error } = await supabase()
+  const client = await supabase();
+  const { data, error } = await client
     .from('users')
     .insert([{
       email: user.email,
@@ -20,7 +21,8 @@ export async function insertUser(user: User) {
 
 // 重构findUserByEmail使用Supabase查询
 export async function findUserByEmail(email: string): Promise<User | undefined> {
-  const { data, error } = await supabase()
+  const client = await supabase();
+  const { data, error } = await client
     .from('users')
     .select('*')
     .eq('email', email)

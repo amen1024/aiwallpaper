@@ -4,7 +4,8 @@ import { supabase } from "./db";
 
 // 修改insertWallpaper函数
 export async function insertWallpaper(wallpaper: Wallpaper) {
-  const { data, error } = await supabase()
+  const client = await supabase();
+  const { data, error } = await client
     .from('wallpapers')
     .insert([{
       user_email: wallpaper.user_email,
@@ -22,7 +23,8 @@ export async function insertWallpaper(wallpaper: Wallpaper) {
 
 // 重构getWallpapersCount函数
 export async function getWallpapersCount(): Promise<number> {
-  const { count, error } = await supabase()
+  const client = await supabase();
+  const { count, error } = await client
     .from('wallpapers')
     .select('*', { count: 'exact' });
 
@@ -32,7 +34,8 @@ export async function getWallpapersCount(): Promise<number> {
 
 // 重构getUserWallpapersCount函数
 export async function getUserWallpapersCount(user_email: string): Promise<number> {
-  const { count, error } = await supabase()
+  const client = await supabase();
+  const { count, error } = await client
     .from('wallpapers')
     .select('*', { count: 'exact' })
     .eq('user_email', user_email);
@@ -53,7 +56,8 @@ export async function getWallpapers(page: number, limit: number): Promise<Wallpa
     rangeEnd: offset + limit - 1
   });
 
-  const { data, error } = await supabase()
+  const client = await supabase();
+  const { data, error } = await client
     .from('wallpapers')
     .select(`
       *,

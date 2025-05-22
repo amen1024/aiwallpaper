@@ -1,24 +1,10 @@
-// import { Pool } from "pg";
 import { createClient } from '@/models/supabase/server'
 import { cookies } from 'next/headers'
 
-// let globalPool: Pool;
-
-// export function getDb() {
-//   if (!globalPool) {
-//     const connectionString = process.env.POSTGRES_URL;
-//     console.log("connectionString", connectionString);
-
-//     globalPool = new Pool({
-//       connectionString,
-//     });
-//   }
-
-//   return globalPool;
-// }
-
-
-export const supabase = () => { // 移除 async/await
-  const cookieStore = cookies() // 同步获取 cookie 存储
-  return createClient(cookieStore)
+/**
+ * 获取Supabase客户端实例（异步）
+ */
+export const supabase = async () => {
+  const cookieStore = await cookies();
+  return createClient(cookieStore);
 }

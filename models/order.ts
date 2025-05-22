@@ -5,7 +5,8 @@ import { supabase } from "@/models/db";
 
 // 修改insertOrder函数
 export async function insertOrder(order: Order) {
-  const { data, error } = await supabase()
+  const client = await supabase();
+  const { data, error } = await client
     .from('orders')
     .insert([{
       order_no: order.order_no,
@@ -24,7 +25,8 @@ export async function insertOrder(order: Order) {
 
 // 修改findOrderByOrderNo函数
 export async function findOrderByOrderNo(order_no: number) {
-  const { data, error } = await supabase()
+  const client = await supabase();
+  const { data, error } = await client
     .from('orders')
     .select('*')
     .eq('order_no', order_no)
@@ -36,7 +38,8 @@ export async function findOrderByOrderNo(order_no: number) {
 
 // 修改updateOrderStatus函数
 export async function updateOrderStatus(order_no: string, order_status: number, paied_at: string) {
-  const { data, error } = await supabase()
+  const client = await supabase();
+  const { data, error } = await client
     .from('orders')
     .update({ 
       order_status,
@@ -54,7 +57,8 @@ export async function updateOrderSession(
   order_no: string,
   stripe_session_id: string
 ) {
-  const { data, error } = await supabase()
+  const client = await supabase();
+  const { data, error } = await client
     .from('orders')
     .update({ stripe_session_id })
     .eq('order_no', order_no);
@@ -66,7 +70,8 @@ export async function updateOrderSession(
 
 export async function getUserOrders(user_email: string): Promise<Order[] | undefined> {
   const now = new Date().toISOString();
-  const { data, error } = await supabase()
+  const client = await supabase();
+  const { data, error } = await client
     .from('orders')
     .select(`
       *,

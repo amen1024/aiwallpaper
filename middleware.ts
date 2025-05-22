@@ -40,5 +40,5 @@ export default authMiddleware({
  */
 export const config = {
   matcher: ["/((?!.+\\.[\\w]+$|_next).*)","/","/(api|trpc)(.*)"],
-  runtime: 'experimental-edge'
+  runtime: 'experimental-edge' // 修改为Next.js要求的实验性运行时
 };

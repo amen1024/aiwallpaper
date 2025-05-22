@@ -7,11 +7,11 @@ import { saveUser } from "@/services/user";
 
 // Trae注释：导入Clerk服务端API模块
 import { clerkClient, getAuth } from '@clerk/nextjs/server';
+// Trae注释：使用Next.js扩展的请求类型
+import { NextRequest, NextResponse } from 'next/server';
 
 export const runtime = "edge";
 
-// Trae注释：使用Next.js扩展的请求类型
-import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(req: NextRequest) {
   try {
