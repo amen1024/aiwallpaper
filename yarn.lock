@@ -95,8 +95,8 @@ __metadata:
   linkType: hard
 
 "@aws-sdk/client-s3@npm:^3.804.0":
-  version: 3.812.0
-  resolution: "@aws-sdk/client-s3@npm:3.812.0"
+  version: 3.815.0
+  resolution: "@aws-sdk/client-s3@npm:3.815.0"
   dependencies:
     "@aws-crypto/sha1-browser": "npm:5.2.0"
     "@aws-crypto/sha256-browser": "npm:5.2.0"
@@ -105,7 +105,7 @@ __metadata:
     "@aws-sdk/credential-provider-node": "npm:3.812.0"
     "@aws-sdk/middleware-bucket-endpoint": "npm:3.808.0"
     "@aws-sdk/middleware-expect-continue": "npm:3.804.0"
-    "@aws-sdk/middleware-flexible-checksums": "npm:3.812.0"
+    "@aws-sdk/middleware-flexible-checksums": "npm:3.815.0"
     "@aws-sdk/middleware-host-header": "npm:3.804.0"
     "@aws-sdk/middleware-location-constraint": "npm:3.804.0"
     "@aws-sdk/middleware-logger": "npm:3.804.0"
@@ -154,7 +154,7 @@ __metadata:
     "@smithy/util-utf8": "npm:^4.0.0"
     "@smithy/util-waiter": "npm:^4.0.3"
     tslib: "npm:^2.6.2"
-  checksum: 10c0/414ad46ae3b5c80ea53116f6533b0954242969eb02c00dc2889b84b91deb4effd79813a740b9edb6483019803f2d2b1b5eb26751015397ce089813f3f7ac4b65
+  checksum: 10c0/c9b51e1492e9aaf9ca5c36b9745c6ba9ab141948be34880b5b5dc1fe6b4e5dd5c8785b34d38d9c624b87068ebead71c6820b9f56f4dceb6c0bc79257073f9a68
   languageName: node
   linkType: hard
 
@@ -340,8 +340,8 @@ __metadata:
   linkType: hard
 
 "@aws-sdk/lib-storage@npm:^3.804.0":
-  version: 3.812.0
-  resolution: "@aws-sdk/lib-storage@npm:3.812.0"
+  version: 3.815.0
+  resolution: "@aws-sdk/lib-storage@npm:3.815.0"
   dependencies:
     "@smithy/abort-controller": "npm:^4.0.2"
     "@smithy/middleware-endpoint": "npm:^4.1.6"
@@ -351,8 +351,8 @@ __metadata:
     stream-browserify: "npm:3.0.0"
     tslib: "npm:^2.6.2"
   peerDependencies:
-    "@aws-sdk/client-s3": ^3.812.0
-  checksum: 10c0/4894e5b717d8a0a95815007a7c8a38786a4f63aad2da52c056b73ae154edda4e8caefd63a9f5cdac7d4770e59c21dfc72011918e2009772e72b2657991696458
+    "@aws-sdk/client-s3": ^3.815.0
+  checksum: 10c0/5817dd666b903f1328bb34372c657a06a9916d9b259ef89c04b82c15d94084565603571a9218f6ca4a604e3131f9041f564de2d83eb6ccd292a9d7b3910792c6
   languageName: node
   linkType: hard
 
@@ -383,9 +383,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/middleware-flexible-checksums@npm:3.812.0":
-  version: 3.812.0
-  resolution: "@aws-sdk/middleware-flexible-checksums@npm:3.812.0"
+"@aws-sdk/middleware-flexible-checksums@npm:3.815.0":
+  version: 3.815.0
+  resolution: "@aws-sdk/middleware-flexible-checksums@npm:3.815.0"
   dependencies:
     "@aws-crypto/crc32": "npm:5.2.0"
     "@aws-crypto/crc32c": "npm:5.2.0"
@@ -400,7 +400,7 @@ __metadata:
     "@smithy/util-stream": "npm:^4.2.0"
     "@smithy/util-utf8": "npm:^4.0.0"
     tslib: "npm:^2.6.2"
-  checksum: 10c0/f57ef8e2d41d3b73dde8ed2663a7a0338fe755386af2adc8080a6fed42250b525da5f779d2d2216849daba3fd67fc15accf63363409b5701131c3f70200d0846
+  checksum: 10c0/87cea23641dbf4953d4a473332b44ffcd54dff252c46371ae07f979fafcb8598511818982d865407ebf2f0553afefbc1dfdcff4bcdb36b295d6f12f1ce482220
   languageName: node
   linkType: hard
 
@@ -874,6 +874,13 @@ __metadata:
   version: 1.20250508.0
   resolution: "@cloudflare/workerd-windows-64@npm:1.20250508.0"
   conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@cloudflare/workers-types@npm:^4.20250522.0":
+  version: 4.20250522.0
+  resolution: "@cloudflare/workers-types@npm:4.20250522.0"
+  checksum: 10c0/22294ba5fe74bc9d2cc9ad6b7f2fb1cc4349223fb739486f6fa06fdb86b2e827dd955363b166110213176c4b040b695c37c72feb579e0b88a819c1526bd88f5d
   languageName: node
   linkType: hard
 
@@ -2819,8 +2826,8 @@ __metadata:
   linkType: hard
 
 "@supabase/supabase-js@npm:^2.49.4":
-  version: 2.49.7
-  resolution: "@supabase/supabase-js@npm:2.49.7"
+  version: 2.49.8
+  resolution: "@supabase/supabase-js@npm:2.49.8"
   dependencies:
     "@supabase/auth-js": "npm:2.69.1"
     "@supabase/functions-js": "npm:2.4.4"
@@ -2828,7 +2835,7 @@ __metadata:
     "@supabase/postgrest-js": "npm:1.19.4"
     "@supabase/realtime-js": "npm:2.11.2"
     "@supabase/storage-js": "npm:2.7.1"
-  checksum: 10c0/cb5959cbe2356a8056bd334701bec784cf0b4bdcd7c511bc9540d3e73de45f588fbc2faa4387b1f9f2c449dedae2a05a6d2339e92687a3dcd8d757c48ad02e20
+  checksum: 10c0/53af13c47d6a352995c57a5a9ed9d09710b64c382339ec4b93014ddcdd83d7a8f3b64064b2b9a5b69e35ed6185679f0e070de9d17b522774b505cda96f86518f
   languageName: node
   linkType: hard
 
@@ -3452,6 +3459,7 @@ __metadata:
     "@aws-sdk/types": "npm:^3.804.0"
     "@clerk/nextjs": "npm:^4.29.1"
     "@cloudflare/next-on-pages": "npm:^1.13.12"
+    "@cloudflare/workers-types": "npm:^4.20250522.0"
     "@heroicons/react": "npm:^2.1.1"
     "@radix-ui/react-avatar": "npm:^1.0.4"
     "@radix-ui/react-dropdown-menu": "npm:^2.0.6"
@@ -5722,8 +5730,8 @@ __metadata:
   linkType: hard
 
 "miniflare@npm:^3.20231218.1":
-  version: 3.20250408.1
-  resolution: "miniflare@npm:3.20250408.1"
+  version: 3.20250408.2
+  resolution: "miniflare@npm:3.20250408.2"
   dependencies:
     "@cspotcode/source-map-support": "npm:0.8.1"
     acorn: "npm:8.14.0"
@@ -5738,7 +5746,7 @@ __metadata:
     zod: "npm:3.22.3"
   bin:
     miniflare: bootstrap.js
-  checksum: 10c0/f1bef5f2c7611210b2ab917a048beef85ab02152f4d83be1fa906a1243d7eaae8325d56b01dd27d2e8c8495362a9dec2a5bd864663795810d520f574e49dca4f
+  checksum: 10c0/5cb962984e9d510e58285d958060c28fba1d4d3815755b4303b04e84cd7f90b46e1f1b52993d0c6f701e190ea824ab46d64c0cdca928a9003a08a32fe7e6096c
   languageName: node
   linkType: hard
 
@@ -6160,8 +6168,8 @@ __metadata:
   linkType: hard
 
 "openai@npm:^4.24.1":
-  version: 4.100.0
-  resolution: "openai@npm:4.100.0"
+  version: 4.102.0
+  resolution: "openai@npm:4.102.0"
   dependencies:
     "@types/node": "npm:^18.11.18"
     "@types/node-fetch": "npm:^2.6.4"
@@ -6180,7 +6188,7 @@ __metadata:
       optional: true
   bin:
     openai: bin/cli
-  checksum: 10c0/c938460659496c6fbf15c3f71ea4819cc64756721f162cd788311cadf6ce6a780a62ca0050cc74218a9e66f58010941717a27260ad9777dfb02e228047061430
+  checksum: 10c0/78700acdd620bb14d7b6a7ae99cac42884bbb09381c080a86014c7eb157651f032711336539532a4ff646a52496d92295a2188448f048a01fc8eded20043ac6d
   languageName: node
   linkType: hard
 
@@ -7882,8 +7890,8 @@ __metadata:
   linkType: hard
 
 "wrangler@npm:^4.15.0":
-  version: 4.16.0
-  resolution: "wrangler@npm:4.16.0"
+  version: 4.16.1
+  resolution: "wrangler@npm:4.16.1"
   dependencies:
     "@cloudflare/kv-asset-handler": "npm:0.4.0"
     "@cloudflare/unenv-preset": "npm:2.3.2"
@@ -7908,7 +7916,7 @@ __metadata:
   bin:
     wrangler: bin/wrangler.js
     wrangler2: bin/wrangler.js
-  checksum: 10c0/2513fed625656d22e2ac2ea87958356cf79920365b968b3c69ba72c44755d95eea73448e9b23bab7e2edfe871767d06909879f5110f5681c3f6359fefbb215e9
+  checksum: 10c0/74fdd871fd7bc82ca331aca0af4d4bbc9155645041ce4bba7014286970a5077e796cb27161043b55e97bbba72c00a54454f75065c5e02a247f898516b8b478c7
   languageName: node
   linkType: hard
 

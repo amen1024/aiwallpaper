@@ -16,11 +16,17 @@ const nextConfig = {
         hostname: 'www.baidu.com',
       },
     ],
+  },experimental: {
+    runtime: 'experimental-edge',
+    externalDir: true,
+    serverComponentsExternalPackages: ['@cloudflare/next-on-pages']
   },
+  output: 'standalone'
 };
+
 
 if (process.env.NODE_ENV === "development") {
   await setupDevPlatform();
 }
 
-export default nextConfig; 
+export default nextConfig;
