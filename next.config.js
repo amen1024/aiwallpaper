@@ -17,7 +17,6 @@ const nextConfig = {
       },
     ],
   },experimental: {
-    runtime: 'experimental-edge',
     externalDir: true,
     serverComponentsExternalPackages: ['@cloudflare/next-on-pages']
   },
